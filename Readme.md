@@ -3,7 +3,7 @@ Rec_bgm 是用bangumi动漫评分数据搭建起来的 recommendation system, �
 
 * 对每个用户评分数据中心化
 * 根据用户间的余弦相似度找到最相关的topk用户
-* 由这些用户加权评分得出推荐的item (在bangumi上已收录的item或自动忽略)
+* 由这些用户加权评分得出推荐的item (在bangumi上已收录的item会自动忽略)
 
 ## 安装方式
 ```
