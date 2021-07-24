@@ -88,10 +88,10 @@ def get_recomendation(recomendation_table,num, option = 1):
     ii.reverse()
     # recomendation_table.iloc[:,ii].columns
     for i,id in enumerate(recomendation_table.iloc[:,ii].columns):
-        # print(f"推荐度:{round(prediction_score_sum[ii[i]]/prediction_score_sum[ii[-1]]*50,2)}%    https://bgm.tv/subject/{id}")
         print(f"推荐指数:{round(prediction_score_sum[ii[i]],2)}    https://bgm.tv/subject/{id}")
+    print("subject id:")
     for id in recomendation_table.iloc[:,ii].columns:
         print(id)
-    for id in recomendation_table.iloc[:,ii].columns:
-        print(f"[url]https://bgm.tv/subject/{id}[/url]")
+    # for id in recomendation_table.iloc[:,ii].columns:
+    #     print(f"[url]https://bgm.tv/subject/{id}[/url]")
         

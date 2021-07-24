@@ -1,12 +1,14 @@
 import pandas as pd
 import numpy as np
-
-from src.data_clean import split
-from src.recommendation import centralization_adjust,cosine_similarly,Recommendation_table,get_recomendation
+import sys
+sys.path.append("src")
+from data_clean import split
+from recommendation import centralization_adjust,cosine_similarly,Recommendation_table,get_recomendation
+from get_newest_score import update_dateset
 
 def main(target_user_id,num = 10,option=1):
-    dataset = pd.read_csv('data/bgm_anime_cleaned.csv', engine='python')
-    # df = centralization_adjust(dataset.iloc[:,1:5])
+    df = pd.read_csv('data/bgm_anime_cleaned.csv', engine='python')
+    dataset = update_dateset(df,target_user_id)
     dfs = split(dataset) 
 
     def recomend(df,op):
@@ -39,4 +41,4 @@ def main(target_user_id,num = 10,option=1):
     
     
 if __name__ == "__main__":
-    main(target_user_id = 572059, option=1, num = 25)
+    main(target_user_id = 340333, option=0, num = 25)

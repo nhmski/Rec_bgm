@@ -1,15 +1,11 @@
 # -*- coding: utf-8 -*-
 from bs4 import BeautifulSoup
 import requests, re, time
-from multiprocessing import Pool
-from joblib import Parallel, delayed
 
 
 global base, filename, errorfile
 base = 'http://mirror.bgm.rin.cat'
-# filename = "bgm_anime_t.xls"
-# errorfile = "bgm_error.txt"
-filename = "user_now.csv"
+filename = "data/user_now.csv"
 errorfile = "debug.txt"
 
 type_ = "anime"
@@ -52,7 +48,7 @@ def get_info(item, status):
 
 # 将获得的数据写入file
 def process_user(user):
-    try: # 如果下面的代码报错，则跳转到except
+    try: 
         for i in get_user(user):
             html, page = "start", 1
             while html:
