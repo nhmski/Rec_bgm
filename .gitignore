@@ -1,0 +1,21 @@
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# 数据
+bgm_anime_cleaned.csv
+bgm_anime.csv
+user_now.csv
+
+.vscode
+*.code-workspace
+.idea
+
+# 文件
+html_example
+bgm_error.txt
+
+#文件夹
+archive
+notebook
