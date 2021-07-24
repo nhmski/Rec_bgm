@@ -25,10 +25,8 @@ def remove_zero_score(dataset):
 
 # 作品按类别拆分
 def split(df):
-    # R18  = np.load("R18_list.npy")
     R18  = np.load("partition_index/R18_list_time2005__.npy")
     df_R18 = df[df["subject_id"].isin(R18)]
-    # all_ages = np.load("all_ages_list.npy")
     all_ages = np.load("partition_index/all_ages_list_time2005__.npy")
     df_all_ages = df[df["subject_id"].isin(all_ages)]
     return df_R18,df_all_ages

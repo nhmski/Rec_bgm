@@ -26,7 +26,7 @@ def cosine_similarly(pivot_table,target_user_id):
 def Recommendation_table(pivot_table, cosinesimilarity,target_items_bool, sun=100):
     """
     sun:指定相似用户的数量
-    target_items_bool:索引是与列名匹配的，使用该bool值的方法是用".loc"
+    target_items_bool:索引是与列名匹配的，使用该bool值的方法是".loc"
     """
     similarusers = cosinesimilarity.argsort()[-sun:] # -1 应该为自己
     topcosine = cosinesimilarity[similarusers]
@@ -41,6 +41,10 @@ def Recommendation_table(pivot_table, cosinesimilarity,target_items_bool, sun=10
     return recomendation_table
 
 def weight(n:int,option):
+    """ 1次测试，100个用户中
+    全年龄动漫：最多71个评分，平均5.9个
+    R18动漫:最多15个评分, 平均2.4个
+    """
     if option==1:
         # 全年龄权重
         if n<=3:
@@ -64,10 +68,6 @@ def get_recomendation(recomendation_table,num, option = 1):
     recom_matrix = recomendation_table.to_numpy()
     cos = recom_matrix[...,-1]
     score = recom_matrix[...,0:-1]
-    """
-    全年龄：最多71个评分，平均5.9个
-    R18:最多15个评分, 平均2.4个
-    """
     prediction_score = score*(cos.reshape(-1,1))
     # prediction_score = prediction_score.sum(axis = 0)/cos.sum()
     prediction_score_sum = prediction_score.sum(axis = 0)
@@ -86,7 +86,6 @@ def get_recomendation(recomendation_table,num, option = 1):
         
     ii = prediction_score_sum.argsort()[-num:].tolist()
     ii.reverse()
-    # recomendation_table.iloc[:,ii].columns
     for i,id in enumerate(recomendation_table.iloc[:,ii].columns):
         print(f"推荐指数:{round(prediction_score_sum[ii[i]],2)}    https://bgm.tv/subject/{id}")
     print("subject id:")
