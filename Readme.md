@@ -1,5 +1,5 @@
 # Rec_bgm
-Rec_bgm 是用bangumi动漫评分数据搭建起来的 recommendation system, 使用的是基于用户的协同过滤算法，流程实现简单
+Rec_bgm 是用bangumi动漫评分数据搭建起来的简单 recommendation system, 使用的是基于用户的协同过滤算法，实现流程
 
 * 对每个用户评分数据中心化
 * 根据用户间的余弦相似度找到最相关的topk用户
